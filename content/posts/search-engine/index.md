@@ -4,8 +4,8 @@ date: "2024-02-01"
 summary: "A search engine overview and Rust implementation"
 description: "A search engine overview and Rust implementation"
 tags: ['information-retrieval', 'rust']
-ShowToc: true
-draft: false
+toc: true
+autonumbering: true
 ---
 
 I have always been fascinated by search engines and their capabilities: 

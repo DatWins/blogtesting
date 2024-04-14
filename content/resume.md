@@ -1,6 +1,5 @@
 ---
 title: "Resume"
-ShowReadingTime: false
 ---
 
 ---

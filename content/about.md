@@ -1,6 +1,6 @@
 ---
 title: "About me"
-ShowReadingTime: false
+toc: false
 ---
 Hello, I am Francesco.
 

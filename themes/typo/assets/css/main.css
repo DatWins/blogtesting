@@ -1,9 +1,48 @@
-/* @import url(https://db.onlinewebfonts.com/c/663c911905498d27729fe0a7f1ca2cc4?family=Bookerly); */
+@font-face {
+  font-family: 'Bookerly';
+  src: url('/fonts/Bookerly/Bookerly-Regular.woff') format('woff'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bookerly';
+  src: url('/fonts/Bookerly/Bookerly-RegularItalic.woff') format('woff'); 
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bookerly';
+  src: url('/fonts/Bookerly/Bookerly-Bold.woff') format('woff'); 
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Bookerly';
+  src: url('/fonts/Bookerly/Bookerly-BoldItalic.woff') format('woff'); 
+  font-weight: bold;
+  font-style: italic;
+}
+
+body {counter-reset: h2}
+h2 {counter-reset: h3}
+h3 {counter-reset: h4}
+h4 {counter-reset: h5}
+
+article[autonumbering] h2:before {counter-increment: h2; content: counter(h2) ". "}
+article[autonumbering] h3:before {counter-increment: h3; content: counter(h2) "." counter(h3) ". "}
+article[autonumbering] h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "." counter(h4) ". "}
+
+article[autonumbering] .toc__menu ul { counter-reset: item }
+article[autonumbering] .toc__menu li a:before { content: counters(item, ".") ". "; counter-increment: item }
+
 
 body {
   font-family: "Bookerly";
   color: #222;
-  font-family: sans-serif;
   line-height: 1.5;
   margin: 1rem;
   margin: auto;
