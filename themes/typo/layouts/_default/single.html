@@ -6,7 +6,8 @@
 <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time> -->
 
 {{- if .Param "toc" }}
-<aside>
+<aside class="toc">
+  <p><strong>Table of contents</strong></p>
   {{ .TableOfContents }}
 </aside>
 {{- end }}

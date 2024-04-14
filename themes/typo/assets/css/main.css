@@ -39,7 +39,6 @@ article[autonumbering] h4:before {counter-increment: h4; content: counter(h2) ".
 article[autonumbering] .toc__menu ul { counter-reset: item }
 article[autonumbering] .toc__menu li a:before { content: counters(item, ".") ". "; counter-increment: item }
 
-
 body {
   font-family: "Bookerly";
   color: #222;
@@ -54,13 +53,16 @@ img {
 }
 
 header {
+  margin-bottom: 2rem;
   border-bottom: 1px solid #222;
-  margin-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 
 footer {
+  display: none;
+  width: 100%;
   border-top: 1px solid #222;
-  margin-top: 1rem;
+  margin-top: auto;
 }
 
 a {
@@ -68,3 +70,57 @@ a {
   text-decoration: underline;
 }
 
+p {
+  margin: 0;
+}
+
+.toc {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+
+/* HEADER TITLE AND IMAGE */
+.title {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.title img {
+  max-width: 100px; /* Adjust the maximum width as needed */
+  max-height: 100px; /* Adjust the maximum height as needed */
+  width: auto;
+  height: auto;
+  margin-right: 30px;
+}
+
+.title h1 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* HOME PAGE */
+
+.post {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: baseline;
+}
+
+.post-date {
+  font-family: monospace;
+  width: 110px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.post-title {
+  margin: 0;
+}
+
+.about {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}

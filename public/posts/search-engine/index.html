@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Search Engine in Rust | My New Hugo Site</title>
+<title>Search Engine in Rust | Francesco Tomaselli</title>
 
     <link rel="stylesheet" href="/css/main.css">
 
@@ -25,7 +25,14 @@
 </head>
 <body>
   <header>
-    <h1>My New Hugo Site</h1>
+    <div class="title">
+    <img src="/profile_pic.small.png">
+    <div>
+        <h1>Francesco Tomaselli</h1>
+        
+    </div>
+    
+</div>
 
   <nav>
     <ul>
@@ -42,13 +49,16 @@
   </nav>
 
 
+
+
   </header>
   <main>
     
 <h1>Search Engine in Rust</h1>
 
 
-<aside>
+<aside class="toc">
+  <p><strong>Table of contents</strong></p>
   <nav id="TableOfContents">
   <ul>
     <li><a href="#what-is-an-inverted-index">What is an Inverted-Index</a>
@@ -102,31 +112,31 @@ Those elements are usually called <strong>postings</strong>, hence those lists a
 <li>So let it be with Caesar. The noble Brutus hath told you Caesar was ambitious.</li>
 </ol>
 <p>We obtain an index as such, for the sake fo the example only doc ids are shown in the postings lists:</p>
-$$
+<p>$$
 \begin{align*}
-\text{ambitious} & \longrightarrow [2] \\\\
-\text{be} & \longrightarrow [2] \\\\
-\text{brutus} & \longrightarrow [1, 2] \\\\
-\text{caesar} & \longrightarrow [1, 2] \\\\
-\text{capitol} & \longrightarrow [1] \\\\
-\text{did} & \longrightarrow [1] \\\\
-\text{enact} & \longrightarrow [1] \\\\
-\text{hath} & \longrightarrow [2] \\\\
-\text{i'} & \longrightarrow [1] \\\\
-\text{it} & \longrightarrow [2] \\\\
-\text{julius} & \longrightarrow [1] \\\\
-\text{killed} & \longrightarrow [1] \\\\
-\text{let} & \longrightarrow [2] \\\\
-\text{me} & \longrightarrow [1] \\\\
-\text{noble} & \longrightarrow [2] \\\\
-\text{so} & \longrightarrow [2] \\\\
-\text{the} & \longrightarrow [1, 2] \\\\
-\text{told} & \longrightarrow [2] \\\\
-\text{was} & \longrightarrow [1, 2] \\\\
-\text{with} & \longrightarrow [2] \\\\
-\text{you} & \longrightarrow [2]
+\text{ambitious} &amp; \longrightarrow [2] \\
+\text{be} &amp; \longrightarrow [2] \\
+\text{brutus} &amp; \longrightarrow [1, 2] \\
+\text{caesar} &amp; \longrightarrow [1, 2] \\
+\text{capitol} &amp; \longrightarrow [1] \\
+\text{did} &amp; \longrightarrow [1] \\
+\text{enact} &amp; \longrightarrow [1] \\
+\text{hath} &amp; \longrightarrow [2] \\
+\text{i&rsquo;} &amp; \longrightarrow [1] \\
+\text{it} &amp; \longrightarrow [2] \\
+\text{julius} &amp; \longrightarrow [1] \\
+\text{killed} &amp; \longrightarrow [1] \\
+\text{let} &amp; \longrightarrow [2] \\
+\text{me} &amp; \longrightarrow [1] \\
+\text{noble} &amp; \longrightarrow [2] \\
+\text{so} &amp; \longrightarrow [2] \\
+\text{the} &amp; \longrightarrow [1, 2] \\
+\text{told} &amp; \longrightarrow [2] \\
+\text{was} &amp; \longrightarrow [1, 2] \\
+\text{with} &amp; \longrightarrow [2] \\
+\text{you} &amp; \longrightarrow [2]
 \end{align*}
-$$
+$$</p>
 <h3 id="extracting-words-from-documents">Extracting words from documents</h3>
 <p>In the above example, we divided the documents into words by first removing all punctuation, lowering the text, and finally splitting words in whitespace. This is an example of <strong>tokenization</strong>.</p>
 <p>There exist various techniques and one can be far more sophisticated with this task, for instance, whitespace splitting could lead to problems with multi-token words, such as <em>San Francisco</em>. For the sake of the project, we apply this simple technique nonetheless.</p>
@@ -134,9 +144,9 @@ $$
 <p>A simple approach for this task is stemming, the idea is to reduce each word to its base form, for instance, by dropping a final <em>s</em>. A well-known algorithm and the one in use in the project is the <a href="https://tartarus.org/martin/PorterStemmer/">Porter Stemmer</a>.</p>
 <p>Another way of doing this is <strong>lemmatization</strong>, which refers to properly using a vocabulary with morphological analysis.</p>
 <p>Here is an example of the two techniques combined:</p>
-$$\text{So many books, so little time.}$$
+<p>$$\text{So many books, so little time.}$$
 $$\downarrow$$
-$$\text{so}, \text{mani}, \text{book}, \text{so}, \text{littl}, \text{time}$$
+$$\text{so}, \text{mani}, \text{book}, \text{so}, \text{littl}, \text{time}$$</p>
 <p>And here is the code example:</p>
 <pre tabindex="0"><code>// build regex r&#34;[^a-zA-Z0-9\s]+&#34;
 // and Porter Stemmer
@@ -160,44 +170,44 @@ pub fn tokenize_and_stem(&amp;self, text: &amp;str) -&gt; Vec&lt;String&gt; {
 <p>We have built an index where for each term we quickly have documents containing it. Executing a boolean query is nothing more than sorted lists intersections, unions, and negations.</p>
 <p>For instance, given the previous toy index, we can search for
 documents containing both the words <em>let</em> and <em>was</em> as such: </p>
-$$
+<p>$$
 \begin{align*}
-\text{let} \land \text{was} &= \text{intersect}([1], [1, 2])\\\\
-&= [1]
+\text{let} \land \text{was} &amp;= \text{intersect}([1], [1, 2])\\
+&amp;= [1]
 \end{align*}
-$$
+$$</p>
 <p>Similarly, or operation becomes list merge:</p>
-$$
+<p>$$
 \begin{align*}
-\text{let} \lor \text{was} &= \text{merge}([1], [1, 2])\\\\
-&= [1, 2]
+\text{let} \lor \text{was} &amp;= \text{merge}([1], [1, 2])\\
+&amp;= [1, 2]
 \end{align*}
-$$
+$$</p>
 <p>Finally, not builds an inverse of the list:</p>
-$$
+<p>$$
 \begin{align*}
-\lnot \\\; \text{let} &= \text{inverse}([1])\\\\
-&= [2]
+\lnot \; \text{let} &amp;= \text{inverse}([1])\\
+&amp;= [2]
 \end{align*}
-$$
+$$</p>
 <p>To make a boolean expression easily parsable, we can transform it in its postfix notation using the
 <a href="https://en.wikipedia.org/wiki/Shunting_yard_algorithm">Shunting yard algorithm</a>,
 and then use a stack to execute it, here is an example:</p>
-$$
+<p>$$
 \begin{align*}
-\text{original} &= \text{let} \land \text{was} \lor \lnot \\\; \text{me} \\\\\\
-\text{postfix} &= \text{let} \\\; \text{was} \land \text{me} \\\; \lnot \\\; \lor
+\text{original} &amp;= \text{let} \land \text{was} \lor \lnot \; \text{me} \\\
+\text{postfix} &amp;= \text{let} \; \text{was} \land \text{me} \; \lnot \; \lor
 \end{align*}
-$$
+$$</p>
 <h3 id="free-text-queries">Free-text queries</h3>
 <p>While boolean queries are certainly powerful, we are used to interacting with search engines via free-text interrogations. Also, we prefer to have results sorted by relevance, instead of receiving the ordered by id as in previous cases.</p>
 <p>Given a free query, we first tokenize and stem it, and then, for each term, retrieve all documents, just like a boolean or query.</p>
 <p><strong>BM25 score</strong></p>
 <p>To obtain the final scoring function, we start with estimating term relevance in each document,
 the function in use here is <a href="https://en.wikipedia.org/wiki/Okapi_BM25">BM25</a>:</p>
-$$\text{BM25}(D, Q) = \sum_{i = 1}^{n} \\\; \text{IDF}(q_i) \cdot \frac{f(q_i, D) \cdot (k_1 + 1)}{f(q_i, D) + k_1 \cdot \Big (1 - b + b \cdot \frac{|D|}{\text{avgdl}} \Big )}$$
+<p>$$\text{BM25}(D, Q) = \sum_{i = 1}^{n} \; \text{IDF}(q_i) \cdot \frac{f(q_i, D) \cdot (k_1 + 1)}{f(q_i, D) + k_1 \cdot \Big (1 - b + b \cdot \frac{|D|}{\text{avgdl}} \Big )}$$</p>
 <p>Where the inverse document frequency is computed as:</p>
-$$\text{IDF}(q_i) = \ln \Bigg ( \frac{N - n(q_i) + 0.5}{n(q_i) + 0.5} + 1 \Bigg )$$
+<p>$$\text{IDF}(q_i) = \ln \Bigg ( \frac{N - n(q_i) + 0.5}{n(q_i) + 0.5} + 1 \Bigg )$$</p>
 <p>The terms are:</p>
 <ul>
 <li>$f(q_i, D)$: number of times query term $i$ occours in document $D$;</li>
@@ -230,10 +240,10 @@ for (id, token) in tokens.iter().enumerate() {
 }
 </code></pre><p><strong>Window score</strong></p>
 <p>After obtaining the BM25 score, we also compute the minimum window in which the query terms appear in a document, setting it at infinite if not all terms appear in the same corpus. For instance, given a query <em>gun control</em>, finding <em>gun and control</em> in a document would result in a size 3 window.</p>
-$$\text{window}(D, Q) = \frac{|Q|}{\text{min. window}(Q, D)}$$
+<p>$$\text{window}(D, Q) = \frac{|Q|}{\text{min. window}(Q, D)}$$</p>
 <p><strong>Final rank function</strong></p>
 <p>The final rank function is then:</p>
-$$\text{score}(D, Q) = \alpha \cdot \text{window}(D, Q) + \beta \cdot \text{BM25}(D, Q)$$
+<p>$$\text{score}(D, Q) = \alpha \cdot \text{window}(D, Q) + \beta \cdot \text{BM25}(D, Q)$$</p>
 <p>The window and BM25 scores are <strong>relevance signals</strong>, a production search engine would many more, such as document quality, <a href="https://en.wikipedia.org/wiki/PageRank">PageRank</a> scoring, etc. The weights to combine them could be learned with a machine learning model, trained on a doc-query pair dataset.</p>
 <h3 id="spelling-correction">Spelling correction</h3>
 <p>The final aspect we are going to see about queries is spelling correction.
@@ -243,17 +253,17 @@ counting the minimum needed operations to transform a string into another one,
 performing insertionm, deletion, and substitutions.</p>
 <p>We can compute it efficiently with dynamic programming, using the followig
 definition.</p>
-$$
+<p>$$
 \text{lev}(a, b) = \begin{cases}
-    |a| & \text{if}\\\;|b| = 0, \\\\
-    |b| & \text{if}\\\;|a| = 0, \\\\
-    1 + \text{min} \begin{cases}
-        \text{lev}(\text{tail}(a), b) \\\\
-        \text{lev}(a, \text{tail}(b)) \\\\
-        \text{lev}(\text{tail}(a), \text{tail}(b)) \\\\
-    \end{cases} & \text{otherwise} \\\\
+|a| &amp; \text{if}\;|b| = 0, \\
+|b| &amp; \text{if}\;|a| = 0, \\
+1 + \text{min} \begin{cases}
+\text{lev}(\text{tail}(a), b) \\
+\text{lev}(a, \text{tail}(b)) \\
+\text{lev}(\text{tail}(a), \text{tail}(b)) \\
+\end{cases} &amp; \text{otherwise} \\
 \end{cases}
-$$
+$$</p>
 <p>To avoid running the function on every term in the vocabulary to
 find the one with minimum distance, we can restrict heavily the candidates
 using a <a href="https://en.wikipedia.org/wiki/Trigram_search">trigram index</a> on the terms.</p>
@@ -290,23 +300,19 @@ We need four files:</p>
 </ol>
 <p><strong>Postings format</strong></p>
 <p>For each term we save a postings list as follows:
-</p>
-$$\text{n}\\;|\\;(\text{id}_i, f_i, [p_0, \dots, p_m]), \dots$$
+$$\text{n}\;|\;(\text{id}_i, f_i, [p_0, \dots, p_m]), \dots$$</p>
 <p>Where $n$ is the number of documents the term appears in, id is the
 doc id, $f$ is the frequency, and $p_j$ are the positions where
 the term appears in the document $i$.</p>
 <p><strong>Offsets format</strong></p>
 <p>The offset file is a sorted sequence of bits offsets.
-</p>
-$$\text{n}\\;|\\;o_0, \dots, o_n$$
+$$\text{n}\;|\;o_0, \dots, o_n$$</p>
 <p><strong>Alphas</strong></p>
 <p>A list of sorted words, with their collection frequency.
-</p>
-$$\text{n}\\;|\\;w_0, f_0, \dots, w_n, f_n$$
+$$\text{n}\;|\;w_0, f_0, \dots, w_n, f_n$$</p>
 <p><strong>Docs</strong></p>
 <p>A list of documents paths, with their length.
-</p>
-$$\text{n}\\;|\\;p_0, l_0, \dots, p_n, l_n$$
+$$\text{n}\;|\;p_0, l_0, \dots, p_n, l_n$$</p>
 <p><strong>Space occupation</strong></p>
 <p>Here is how much memory an index for ~180k documents with 32-bit integers representation takes on disk:</p>
 <pre tabindex="0"><code>total 4620800
@@ -328,28 +334,26 @@ representation of an integer and write its length in unary before it.
 For instance, $5$, and its binary representation $101$, will then
 be written as $001$, concatenated with $101$, we can merge the two center ones
 to avoid wasting one bit $00101$. Here are the first integers:</p>
-$$
+<p>$$
 \begin{align*}
-1 &\rightarrow  1 \\\\
-2 &\rightarrow  010 \\\\
-3 &\rightarrow  011 \\\\
-4 &\rightarrow  00100 \\\\
-5 &\rightarrow  00101 \\\\
-6 &\rightarrow  00110 \\\\
-7 &\rightarrow  00111 \\\\
-&\dots
+1 &amp;\rightarrow  1 \\
+2 &amp;\rightarrow  010 \\
+3 &amp;\rightarrow  011 \\
+4 &amp;\rightarrow  00100 \\
+5 &amp;\rightarrow  00101 \\
+6 &amp;\rightarrow  00110 \\
+7 &amp;\rightarrow  00111 \\
+&amp;\dots
 \end{align*}
-$$
+$$</p>
 <p>For generic integers, such as list lengths, we can use <a href="https://nlp.stanford.edu/IR-book/html/htmledition/variable-byte-codes-1.html">VByte encoding</a>. I already mentioned it in my other blog post about <a href="/posts/lsm/#data-layout">LSM-trees</a>, go have a look if you like.
 The idea is similar, we split an integer into 7-bit payloads and use the remaining bit to indicate whether the payload continues or not. Integers would then use one to four bytes, instead of 32 bits every time.</p>
 <h3 id="using-words-prefixes">Using words prefixes</h3>
 <p>Vocabulary is also sorted, hence we can use prefix compression to store the terms. Take for instance <em>watermelon</em>, <em>waterfall</em>, and <em>waterfront</em>. Instead of writing them as they are, we store the length of the matching prefix with the previous word, followed by the remaining suffix.</p>
 <p>The naïve representation:
-</p>
-$$\text{watermelon}\\;\text{waterfall}\\;\text{waterfront}$$
+$$\text{watermelon}\;\text{waterfall}\;\text{waterfront}$$</p>
 <p>Then becomes:
-</p>
-$$0\\;\text{watermelon}\\;5\\;\text{fall}\\;6\\;\text{ront}$$
+$$0\;\text{watermelon}\;5\;\text{fall}\;6\;\text{ront}$$</p>
 <p>We can apply the same principles with document paths, as they likely share directories.</p>
 <h3 id="final-representation">Final representation</h3>
 <p>After employing prefix compression and delta encoding with VByte and Gamma codes, we save over <strong>~68%</strong> of disk space compared to the naïve representation.</p>

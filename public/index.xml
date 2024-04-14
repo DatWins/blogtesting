@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on My New Hugo Site</title>
+    <title>Home on Francesco Tomaselli</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content in Home on My New Hugo Site</description>
+    <description>Recent content in Home on Francesco Tomaselli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate>
@@ -27,7 +27,7 @@
       <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>Hello, I am Francesco.&#xA;I am an Italian Software Engineer with a strong foundation in computer science and a passion for solving complex problems.&#xA;I am interested in a range of topics, including distributed systems, databases, information retrieval, and machine learning.&#xA;Feel free to have a look at my Github, Medium, or get in touch on Linkedin.</description>
+      <description>I am an Italian Software Engineer with a strong foundation in computer science and a passion for solving complex problems. I am interested in a range of topics, including algorithms, distributed systems, databases, and information retrieval.</description>
     </item>
     <item>
       <title>Resume</title>
