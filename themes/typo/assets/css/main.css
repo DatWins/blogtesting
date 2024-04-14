@@ -1,0 +1,31 @@
+/* @import url(https://db.onlinewebfonts.com/c/663c911905498d27729fe0a7f1ca2cc4?family=Bookerly); */
+
+body {
+  font-family: "Bookerly";
+  color: #222;
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin: 1rem;
+  margin: auto;
+  max-width: 768px;
+}
+
+img {
+  max-width: 768px;
+}
+
+header {
+  border-bottom: 1px solid #222;
+  margin-bottom: 1rem;
+}
+
+footer {
+  border-top: 1px solid #222;
+  margin-top: 1rem;
+}
+
+a {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+}
+

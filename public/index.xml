@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on My New Hugo Site</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Home on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Search Engine in Rust</title>
+      <link>http://localhost:1313/posts/search-engine/</link>
+      <pubDate>Thu, 01 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/search-engine/</guid>
+      <description>A search engine overview and Rust implementation</description>
+    </item>
+    <item>
+      <title>Log-Structured Merge Tree</title>
+      <link>http://localhost:1313/posts/lsm/</link>
+      <pubDate>Sun, 12 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/lsm/</guid>
+      <description>An LSM Tree overview and Java implementation</description>
+    </item>
+    <item>
+      <title>About me</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>Hello, I am Francesco.&#xA;I am an Italian Software Engineer with a strong foundation in computer science and a passion for solving complex problems.&#xA;I am interested in a range of topics, including distributed systems, databases, information retrieval, and machine learning.&#xA;Feel free to have a look at my Github, Medium, or get in touch on Linkedin.</description>
+    </item>
+    <item>
+      <title>Resume</title>
+      <link>http://localhost:1313/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/resume/</guid>
+      <description>Education University of Milan Master of Science in Computer Science 2020 - 2022&#xA;University of Trento Bachelor of Science in Computer Science 2017 - 2020&#xA;Work Experience Satispay Software Engineer Jan 2023 - Present&#xA;Spaziodati Software Engineer Intern Feb 2020 - Jun 2020&#xA;Skills Programming Languages Java, Python&#xA;Technologies PostgreSQL, Git, Linux, AWS, Spring, Docker, Spark&#xA;Topics Distributed systems, Databases, Microservices, Data compression, Information Retrival, Machine learning, Testing, CI/CD</description>
+    </item>
+  </channel>
+</rss>
