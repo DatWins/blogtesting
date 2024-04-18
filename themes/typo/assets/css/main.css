@@ -1,51 +1,58 @@
 @font-face {
-  font-family: 'Bookerly';
-  src: url('/fonts/Bookerly/Bookerly-Regular.woff') format('woff'); 
-  font-weight: normal;
+  font-family: 'Literata';
+  src: url('/fonts/Literata/Literata-Light.woff') format('woff');
+  font-weight: light;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Bookerly';
-  src: url('/fonts/Bookerly/Bookerly-RegularItalic.woff') format('woff'); 
-  font-weight: normal;
+  font-family: 'Literata';
+  src: url('/fonts/Literata/Literata-LightItalic.woff') format('woff');
+  font-weight: light;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Bookerly';
-  src: url('/fonts/Bookerly/Bookerly-Bold.woff') format('woff'); 
+  font-family: 'Literata';
+  src: url('/fonts/Literata/Literata-SemiBold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
 
-
 @font-face {
-  font-family: 'Bookerly';
-  src: url('/fonts/Bookerly/Bookerly-BoldItalic.woff') format('woff'); 
+  font-family: 'Literata';
+  src: url('/fonts/Literata/Literata-SemiBoldItalic.woff') format('woff');
   font-weight: bold;
   font-style: italic;
 }
 
-body {counter-reset: h2}
-h2 {counter-reset: h3}
-h3 {counter-reset: h4}
-h4 {counter-reset: h5}
+@font-face {
+  font-family: 'Monaspace';
+  src: url('/fonts/Monaspace/MonaspaceArgon-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal
+}
 
-article[autonumbering] h2:before {counter-increment: h2; content: counter(h2) ". "}
-article[autonumbering] h3:before {counter-increment: h3; content: counter(h2) "." counter(h3) ". "}
-article[autonumbering] h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "." counter(h4) ". "}
-
-article[autonumbering] .toc__menu ul { counter-reset: item }
-article[autonumbering] .toc__menu li a:before { content: counters(item, ".") ". "; counter-increment: item }
+@font-face {
+  font-family: 'Monaspace';
+  src: url('/fonts/Monaspace/MonaspaceArgon-SemiBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal
+}
 
 body {
-  font-family: "Bookerly";
+  font-family: "Literata";
+  text-align: justify;
   color: #222;
   line-height: 1.5;
   margin: 1rem;
   margin: auto;
   max-width: 768px;
+}
+
+code {
+  font-family: "Monaspace";
+  font-size: small;
 }
 
 img {
@@ -54,7 +61,6 @@ img {
 
 header {
   margin-bottom: 2rem;
-  border-bottom: 1px solid #222;
   padding-bottom: 2rem;
 }
 
@@ -81,36 +87,50 @@ p {
 
 
 /* HEADER TITLE AND IMAGE */
-.title {
-  margin-top: 30px;
-  display: flex;
+.nav-container {
+  margin-top: 1rem;
+  /* display: flex; */
   align-items: center;
 }
 
-.title img {
-  max-width: 100px; /* Adjust the maximum width as needed */
-  max-height: 100px; /* Adjust the maximum height as needed */
-  width: auto;
-  height: auto;
-  margin-right: 30px;
+.nav-container h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
-.title h1 {
-  margin-bottom: 0;
+.menu-container {
+  display: flex;
+}
+
+.menu-entry {
+  font-family: monospace;
+  margin-right: .5rem;
   margin-top: 0;
+}
+
+.active {
+  font-weight: bold;
 }
 
 /* HOME PAGE */
 
 .post {
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin-bottom: .5rem;
   display: flex;
   align-items: baseline;
 }
 
+.post a {
+  text-decoration: underline;
+}
+
+.monospace {
+  font-family: "Monaspace";
+  font-size: small;
+}
+
 .post-date {
-  font-family: monospace;
+  font-size: small;
   width: 110px;
   margin-right: 10px;
   text-align: right;
@@ -121,6 +141,24 @@ p {
 }
 
 .about {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  /* margin-top: 2rem; */
+  margin-bottom: 1rem;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+  padding: 12px 0;
+}
+
+.social-icons a {
+  text-decoration: none;
+}
+
+.social-icons a:not(:last-of-type) {
+  margin-inline-end: 12px;
+}
+
+.social-icons a svg {
+  height: 20px;
+  width: 20px;
 }

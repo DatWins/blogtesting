@@ -1,11 +1,16 @@
-<div class="title">
-    <img src="{{ .Site.Params.iconPath }}">
-    <div>
-        <h1>{{ site.Title }}</h1>
-        
+<div class="nav-container">
+    <h1>{{ site.Title }}</h1>
+
+    <div class="menu-container">
+        {{ $currentPage := . }}
+
+        {{ with site.Params.menu }}
+        {{ range . }}
+        <p class="menu-entry monospaces {{ if eq .url $currentPage.Path }} active {{end}}"><a href="{{.url}}">/{{ .name
+                }}</a></p>
+        {{ end }}
+        {{ end }}
     </div>
-    
+
+
 </div>
-{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-
-

@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Bookerly';
+    src: url('/fonts/Bookerly/Bookerly-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bookerly';
+    src: url('/fonts/Bookerly/Bookerly-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bookerly';
+    src: url('/fonts/Bookerly/Bookerly-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Bookerly';
+    src: url('/fonts/Bookerly/Bookerly-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
