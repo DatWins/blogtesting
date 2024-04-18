@@ -1,8 +1,7 @@
 ---
 title: "Search Engine in Rust"
 date: "2024-02-01"
-summary: "A search engine overview and Rust implementation"
-tags: ['information-retrieval', 'rust']
+summary: "A search engine overview and Rust implementation."
 toc: true
 readTime: true
 ---

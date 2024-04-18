@@ -1,5 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
+disableKinds = ['taxonomy']
 title = 'Francesco Tomaselli'
 theme = 'Typo'
 
@@ -39,13 +40,10 @@ name = "home"
 url = "/"
 
 [[params.menu]]
-name = "resume"
-url = "/resume"
-
-[[params.menu]]
 name = "posts"
 url = "/posts"
 
+
 [[params.menu]]
-name = "tags"
-url = "/tags"
+name = "resume"
+url = "/resume"

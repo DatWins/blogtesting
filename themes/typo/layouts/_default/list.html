@@ -3,10 +3,15 @@
 {{ .Content }}
 {{ range .Pages }}
 
-<div class="post">
-    <p class="post-date monospace">{{ .Date.Format "2 Jan 2006" }} </p>
-    <p class="post-title"> <strong><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></strong></p>
-</div>
+
+{{/* <div class="post-list-container"> */}}
+    <div class="post-line">
+        <p class="post-date monospace">{{ .Date.Format "2 Jan 2006" }} </p>
+        <p class="post-title"> <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></p>
+    </div>
+    {{/* <p class="italic">{{.Summary}}</p> */}}
+    {{/*
+</div>s */}}
 
 {{ end }}
 {{ end }}
