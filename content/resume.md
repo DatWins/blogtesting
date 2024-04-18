@@ -24,7 +24,7 @@ Master of Science in Computer Science \
 Bachelor of Science in Computer Science \
 *2017 - 2020*
 
-
+<!-- 
 ## Skills
 
 **Programming Languages** \
@@ -34,4 +34,4 @@ Java, Python
 PostgreSQL, Git, Linux, AWS, Spring, Docker, Spark
 
 **Topics** \
-Distributed systems, Databases, Microservices, Data compression, Information Retrival, Machine learning, Testing, CI/CD
+Distributed systems, Databases, Microservices, Data compression, Information Retrival, Machine learning, Testing, CI/CD -->

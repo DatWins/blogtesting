@@ -27,7 +27,7 @@
       <link>http://localhost:1313/resume/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/resume/</guid>
-      <description>Work Experience Satispay Software Engineer Jan 2023 - Present&#xA;Spaziodati Software Engineer Intern Feb 2020 - Jun 2020&#xA;Education University of Milan Master of Science in Computer Science 2020 - 2022&#xA;University of Trento Bachelor of Science in Computer Science 2017 - 2020&#xA;Skills Programming Languages Java, Python&#xA;Technologies PostgreSQL, Git, Linux, AWS, Spring, Docker, Spark&#xA;Topics Distributed systems, Databases, Microservices, Data compression, Information Retrival, Machine learning, Testing, CI/CD</description>
+      <description>Work Experience Satispay Software Engineer Jan 2023 - Present&#xA;Spaziodati Software Engineer Intern Feb 2020 - Jun 2020&#xA;Education University of Milan Master of Science in Computer Science 2020 - 2022&#xA;University of Trento Bachelor of Science in Computer Science 2017 - 2020</description>
     </item>
   </channel>
 </rss>

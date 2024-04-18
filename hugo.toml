@@ -7,7 +7,6 @@ theme = 'Typo'
 
 # Config
 math = true
-iconPath = '/profile_pic.small.png'
 
 # Intro text
 homeIntroTitle = 'Hi!'
@@ -46,3 +45,7 @@ url = "/resume"
 [[params.menu]]
 name = "posts"
 url = "/posts"
+
+[[params.menu]]
+name = "tags"
+url = "/tags"

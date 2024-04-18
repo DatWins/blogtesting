@@ -6,11 +6,10 @@
 
         {{ with site.Params.menu }}
         {{ range . }}
-        <p class="menu-entry monospaces {{ if eq .url $currentPage.Path }} active {{end}}"><a href="{{.url}}">/{{ .name
+        <p class="menu-entry monospaces {{ if eq .url $currentPage.Path }} active {{end}}"><a href="{{.url}}">/{{
+                .name
                 }}</a></p>
         {{ end }}
         {{ end }}
     </div>
-
-
 </div>

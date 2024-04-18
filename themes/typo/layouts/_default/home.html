@@ -6,7 +6,7 @@
 {{if or .Site.Params.homeIntroTitle .Site.Params.homeIntroContent}}
 <div class="about">
     {{ if .Site.Params.homeIntroTitle }}
-    <h1>{{ .Site.Params.homeIntroTitle }}</h1>
+    <h2>{{ .Site.Params.homeIntroTitle }}</h2>
     {{ end }}
 
     {{ if .Site.Params.homeIntroContent }}
@@ -29,7 +29,7 @@
 
 {{/* Posts list section */}}
 
-<h1>Posts</h1>
+<h2>Posts</h2>
 {{ range site.RegularPages }}
 {{ if in .File.Path "posts" }}
 <div class="post">

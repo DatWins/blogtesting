@@ -10,16 +10,21 @@
 </head>
 
 <body>
-  
+
+  {{/* {{ if .IsHome}} */}}
   <header>
     {{ partial "header.html" . }}
   </header>
+
+  {{/* {{ end }} */}}
   <main>
     {{ block "main" . }}{{ end }}
   </main>
-  <footer>
-    {{ partial "footer.html" . }}
-  </footer>
+
 </body>
+
+<footer>
+  {{ partial "footer.html" . }}
+</footer>
 
 </html>

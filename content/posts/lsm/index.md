@@ -2,10 +2,9 @@
 title: "Log-Structured Merge Tree"
 date: "2023-11-12"
 summary: "An LSM Tree overview and Java implementation"
-description: "An LSM Tree overview and Java implementation"
 tags: ['database', 'java']
 toc: true
-autonumbering: true
+readTime: true
 ---
 
 I studied LSM trees at university and after encountering them twice in
