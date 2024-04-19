@@ -4,11 +4,14 @@
     <div class="menu-container">
         {{ $currentPage := . }}
 
+        {{/* Menu items */}}
         {{ with site.Params.menu }}
         {{ range . }}
-        <p class="menu-entry monospaces {{ if eq .url $currentPage.Path }} active {{end}}"><a href="{{.url}}">/{{
-                .name
-                }}</a></p>
+        <p class="menu-entry {{ if eq .url $currentPage.Path }} active {{end}}">
+            <a href="{{.url}}">
+                /{{.name }}
+            </a>
+        </p>
         {{ end }}
         {{ end }}
     </div>

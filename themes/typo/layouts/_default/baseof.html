@@ -11,12 +11,10 @@
 
 <body>
 
-  {{/* {{ if .IsHome}} */}}
   <header>
     {{ partial "header.html" . }}
   </header>
 
-  {{/* {{ end }} */}}
   <main>
     {{ block "main" . }}{{ end }}
   </main>

@@ -1,11 +1,17 @@
 {{ define "main" }}
+
+{{/* Intro */}}
+
 <div class="single-intro-container">
 
-  <h1 class="single-title">{{ .Title }}</h1>
+  {{/* Title and Summary */}}
 
+  <h1 class="single-title">{{ .Title }}</h1>
   {{if .Param "summary" }}
   <p class="single-summary">{{ .Summary }}</p>
   {{ end }}
+
+  {{/* Reading Time */}}
 
   <p class="single-readtime">
     {{if .Date }}
@@ -20,12 +26,17 @@
   </p>
 
 </div>
+
+{{/* Table of Content */}}
+
 {{if .Param "toc" }}
 <aside class="toc">
   <p><strong>Table of contents</strong></p>
   {{ .TableOfContents }}
 </aside>
 {{ end }}
+
+{{/* Actual document content */}}
 
 {{ .Content }}
 
