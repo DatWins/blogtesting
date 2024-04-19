@@ -1,0 +1,11 @@
+:root {
+    --main-width: 720px;
+
+    /* header settings */
+    --header-top-gap: 2rem;
+    --header-bottom-gap: 2rem;
+    --header-menu-side-gap: .5rem;
+    --header-menu-top-gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {}
