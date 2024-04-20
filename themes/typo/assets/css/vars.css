@@ -3,16 +3,11 @@
     --main-padding: 1rem;
     --main-padding-bottom: 3rem;
 
-
     /* header settings */
     --header-top-gap: 1.5rem;
     --header-bottom-gap: 2rem;
     --header-menu-side-gap: .5rem;
     --header-menu-top-gap: 1rem;
-
-    /* intro */
-    --intro-top-gap: 3rem;
-    --intro-bottom-gap: 1rem;
 
     /* Typography */
     --h1-margin-top: 2rem;
@@ -33,7 +28,6 @@
 
     --toc-margin-top: 2rem;
     --toc-margin-bottom: 3rem;
-
 
     /* code */
     --code-padding: 1.5rem;

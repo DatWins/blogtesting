@@ -112,12 +112,6 @@ hr {
   margin-top: 0;
 }
 
-/* HOME PAGE INTRO */
-
-.intro {
-  margin-top: var(--intro-top-gap);
-  margin-bottom: var(--intro-bottom-gap);
-}
 
 /* HOME PAGE */
 
