@@ -105,7 +105,7 @@ To determine a level, we can toss a coin and keep going until we get heads.
 This would require a lot of random generations, a faster way is to generate a single
 number and use its binary representation as boolean values.
 
-```
+```java
 private int randomLevel() {
     int level = 1;
     long n = rn.nextLong();
