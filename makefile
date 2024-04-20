@@ -1,4 +1,4 @@
-push: 
+push_blog: 
 	git add . && git commit -m "Update" && git push
 
 rebuild_public: 
