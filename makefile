@@ -8,4 +8,4 @@ clean_public:
 	rm -r public/*
 
 push_public: 
-	make rebuild_public && git add . && git commit -m "Site update" && git push
+	make rebuild_public && cd public && git add . && git commit -m "Site update" && git push
