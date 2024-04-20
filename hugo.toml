@@ -8,6 +8,8 @@ theme = 'Typo'
 # Config
 math = true
 
+profilePic = 'static/profile_pic.png'
+
 # Intro text
 homeIntro = true
 homeIntroTitle = 'Hi!'
