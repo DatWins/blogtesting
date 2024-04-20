@@ -9,3 +9,6 @@ clean_public:
 
 push_public: 
 	make rebuild_public && cd public && git add . && git commit -m "Site update" && git push
+
+all: 
+	make push_public && make push_blog
