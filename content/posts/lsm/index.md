@@ -73,7 +73,7 @@ Insertion proceeds as follows:
 - insert as in a linked list, but at each required level. Note that for this to work we need to
 keep track of a predecessor buffer while descending levels. This way we can correctly replace successors pointers at each level.
 
-```
+```java
 public void add(ByteArrayPair item) {
 
     // Locate the element keeping track of predecessors at each level
@@ -135,7 +135,7 @@ Note that we can stop the search as soon as the current element surpasses the wa
 Below is the code for searching, this implementation is as lazy as possible, meaning that we only read
 what's strictly necessary while iterating on the input stream.
 
-```
+```java
 public byte[] get(byte[] key) {
 
     if (compare(key, minKey) == -1 || compare(key, maxKey) == 1)
@@ -197,7 +197,7 @@ We can tune the structure for our particular needs, by specifying a false-positi
 So, while looking for a key, we first test for probabilistic membership, and if the answer is negative, we can
 early return null from the search.
 
-```
+```java
 public byte[] get(byte[] key) {
     if (!bloomFilter.mightContain(key))
         return null;
@@ -269,7 +269,7 @@ Searching is a bit trickier, and has at most three steps:
 
 If, at any point, the wanted key is found, we can stop the search.
 
-```
+```java
 public byte[] get(byte[] key) {
     byte[] result;
 
@@ -294,7 +294,7 @@ public byte[] get(byte[] key) {
 When a given threshold is met, the Memtable is scheduled for flushing. To avoid blocking the whole
 Tree until data is persisted on disk, we use a background thread.
 
-```
+```java
 private void checkMemtableSize() {
     if (mutableMemtable.size() <= mutableMemtableMaxSize)
         return;

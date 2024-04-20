@@ -76,7 +76,7 @@ $$\text{so}, \text{mani}, \text{book}, \text{so}, \text{littl}, \text{time}$$
 
 And here is the code example: 
 
-```
+```rust
 // build regex r"[^a-zA-Z0-9\s]+"
 // and Porter Stemmer
 
@@ -173,7 +173,7 @@ The terms are:
 
 Here is the code example
 
-```
+```rust
 let mut scores: HashMap<u32, DocumentScore> = HashMap::new();
 
 let n = self.documents.get_num_documents() as f64;
@@ -246,7 +246,7 @@ have references to terms.
 
 When we find a tie in edit distance, we prefer higher overall frequency.
 
-```
+```rust
 fn get_closest_index(&self, term: &str) -> Option<usize> {
     // "hello" -> "hel", "ell", "llo"
     let candidates = (0..term.len() - 2)
@@ -303,7 +303,7 @@ $$\text{n}\\;|\\;p_0, l_0, \dots, p_n, l_n$$
 
 Here is how much memory an index for ~180k documents with 32-bit integers representation takes on disk: 
 
-```
+```bash
 total 4620800
 -rw-r--r--@ 1 fran  staff   5.4M Feb  1 17:33 idx.alphas
 -rw-r--r--@ 1 fran  staff   7.2M Feb  1 17:33 idx.docs
@@ -361,7 +361,7 @@ We can apply the same principles with document paths, as they likely share direc
 
 After employing prefix compression and delta encoding with VByte and Gamma codes, we save over **~68%** of disk space compared to the naïve representation.
 
-```
+```bash
 total 1519232
 -rw-r--r--@ 1 fran  staff   1.3M Feb  1 17:54 idx.alphas
 -rw-r--r--@ 1 fran  staff   2.3M Feb  1 17:54 idx.docs
@@ -376,7 +376,7 @@ The project defines a writer and reader to store those codes on disk. Although n
 When we want to write a given integer, we first build a binary payload containing its Gamma representation and then append it to the bit buffer via bit manipulation.
 Once the buffer reaches 128 bits, it is flushed to the underlying buffered writer.
 
-```
+```rust
 pub fn write_gamma(&mut self, n: u32) -> u64 {
     let (gamma, len) = BitsWriter::int_to_gamma(n + 1);
     self.write_internal(gamma, len)

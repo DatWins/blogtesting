@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/vars.css">
+<link rel="stylesheet" href="/css/utils.css">
 <link rel="stylesheet" href="/css/fonts.css">
 <link rel="stylesheet" href="/css/main.css">
 
@@ -31,7 +32,9 @@
 <body>
 
   <header>
-    <div class="header">
+    
+
+<div class="header">
     <h1>Francesco Tomaselli</h1>
 
     <div class="flex">
@@ -39,26 +42,26 @@
 
         
         
-        
-        <p class="">
+        <p class="small ">
             <a href="/">
                 /home
             </a>
         </p>
         
-        <p class="">
+        <p class="small ">
             <a href="/posts">
                 /posts
             </a>
         </p>
         
-        <p class="">
+        <p class="small ">
             <a href="/resume">
                 /resume
             </a>
         </p>
         
         
+
     </div>
 </div>
   </header>
@@ -183,30 +186,30 @@ Eventually, we&rsquo;ll reach level zero, and determine if the element is found 
 <li>insert as in a linked list, but at each required level. Note that for this to work we need to
 keep track of a predecessor buffer while descending levels. This way we can correctly replace successors pointers at each level.</li>
 </ul>
-<pre tabindex="0"><code>public void add(ByteArrayPair item) {
-
-    // Locate the element keeping track of predecessors at each level
-    Node current = sentinel;
-    for (int i = levels - 1; i &gt;= 0; i--) {
-        while (current.next[i] != null &amp;&amp; current.next[i].val.compareTo(item) &lt; 0)
-            current = current.next[i];
-        buffer[i] = current; 
-    }
-
-    // Replace current value if possible
-    if (current.next[0] != null &amp;&amp; current.next[0].val.compareTo(item) == 0) {
-        current.next[0].val = item;
-        return;
-    }
-
-    // Insert new node at a random level, updating predecessors
-    Node newNode = new Node(item, levels);
-    for (int i = 0; i &lt; randomLevel(); i++) {
-        newNode.next[i] = buffer[i].next[i];
-        buffer[i].next[i] = newNode;
-    }
-}
-</code></pre><h3 id="choosing-a-level">Choosing a level</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">public</span> <span style="font-weight:bold;text-decoration:underline">void</span> <span style="color:#666;font-weight:bold;font-style:italic">add</span>(ByteArrayPair item) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// Locate the element keeping track of predecessors at each level</span>
+</span></span><span style="display:flex;"><span>    Node current = sentinel;
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span> (<span style="font-weight:bold;text-decoration:underline">int</span> i = levels - 1; i &gt;= 0; i--) {
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">while</span> (current.next[i] != <span style="font-weight:bold;text-decoration:underline">null</span> &amp;&amp; current.next[i].val.compareTo(item) &lt; 0)
+</span></span><span style="display:flex;"><span>            current = current.next[i];
+</span></span><span style="display:flex;"><span>        buffer[i] = current; 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// Replace current value if possible</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">if</span> (current.next[0] != <span style="font-weight:bold;text-decoration:underline">null</span> &amp;&amp; current.next[0].val.compareTo(item) == 0) {
+</span></span><span style="display:flex;"><span>        current.next[0].val = item;
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// Insert new node at a random level, updating predecessors</span>
+</span></span><span style="display:flex;"><span>    Node newNode = <span style="font-weight:bold;text-decoration:underline">new</span> Node(item, levels);
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span> (<span style="font-weight:bold;text-decoration:underline">int</span> i = 0; i &lt; randomLevel(); i++) {
+</span></span><span style="display:flex;"><span>        newNode.next[i] = buffer[i].next[i];
+</span></span><span style="display:flex;"><span>        buffer[i].next[i] = newNode;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="choosing-a-level">Choosing a level</h3>
 <p>To determine a level, we can toss a coin and keep going until we get heads.
 This would require a lot of random generations, a faster way is to generate a single
 number and use its binary representation as boolean values.</p>
@@ -230,54 +233,54 @@ a linear scan. This permits us to skip a lot of unnecessary comparisons and loca
 <p>Note that we can stop the search as soon as the current element surpasses the wanted one.
 Below is the code for searching, this implementation is as lazy as possible, meaning that we only read
 what&rsquo;s strictly necessary while iterating on the input stream.</p>
-<pre tabindex="0"><code>public byte[] get(byte[] key) {
-
-    if (compare(key, minKey) == -1 || compare(key, maxKey) == 1)
-        return null;
-
-    // binary search an offset to start search
-    long offset = getCandidateOffsetIndex(key);
-    int remaining = size - sparseSizeCount.getInt(offsetIndex);
-    
-    // move input stream to the offset given by the index
-    is.seek(offset);
-
-    int cmp = 1;
-    int searchKeyLen = key.length, readKeyLen, readValueLen;
-
-    byte[] readKey;
-    while (cmp &gt; 0 &amp;&amp; remaining &gt; 0) {
-
-        remaining--;
-        readKeyLen = is.readVByteInt();
-
-        // gone too far
-        if (readKeyLen &gt; searchKeyLen) {
-            return null;
-        }
-
-        // gone too short
-        if (readKeyLen &lt; searchKeyLen) {
-            readValueLen = is.readVByteInt();
-            is.skip(readKeyLen + readValueLen);
-            continue;
-        }
-
-        // read full key, compare, if equal read value
-        readValueLen = is.readVByteInt();
-        readKey = is.readNBytes(readKeyLen);
-        cmp = compare(key, readKey);
-
-        if (cmp == 0) {
-            return is.readNBytes(readValueLen);
-        } else {
-            is.skip(readValueLen);
-        }
-    }
-
-    return null;
-}
-</code></pre><h3 id="bloom-filters">Bloom Filters</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">public</span> <span style="font-weight:bold;text-decoration:underline">byte</span>[] <span style="color:#666;font-weight:bold;font-style:italic">get</span>(<span style="font-weight:bold;text-decoration:underline">byte</span>[] key) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">if</span> (compare(key, minKey) == -1 || compare(key, maxKey) == 1)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">return</span> <span style="font-weight:bold;text-decoration:underline">null</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// binary search an offset to start search</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">long</span> offset = getCandidateOffsetIndex(key);
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">int</span> remaining = size - sparseSizeCount.getInt(offsetIndex);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// move input stream to the offset given by the index</span>
+</span></span><span style="display:flex;"><span>    is.seek(offset);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">int</span> cmp = 1;
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">int</span> searchKeyLen = key.length, readKeyLen, readValueLen;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">byte</span>[] readKey;
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">while</span> (cmp &gt; 0 &amp;&amp; remaining &gt; 0) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        remaining--;
+</span></span><span style="display:flex;"><span>        readKeyLen = is.readVByteInt();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888;font-style:italic">// gone too far</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">if</span> (readKeyLen &gt; searchKeyLen) {
+</span></span><span style="display:flex;"><span>            <span style="font-weight:bold;text-decoration:underline">return</span> <span style="font-weight:bold;text-decoration:underline">null</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888;font-style:italic">// gone too short</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">if</span> (readKeyLen &lt; searchKeyLen) {
+</span></span><span style="display:flex;"><span>            readValueLen = is.readVByteInt();
+</span></span><span style="display:flex;"><span>            is.skip(readKeyLen + readValueLen);
+</span></span><span style="display:flex;"><span>            <span style="font-weight:bold;text-decoration:underline">continue</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888;font-style:italic">// read full key, compare, if equal read value</span>
+</span></span><span style="display:flex;"><span>        readValueLen = is.readVByteInt();
+</span></span><span style="display:flex;"><span>        readKey = is.readNBytes(readKeyLen);
+</span></span><span style="display:flex;"><span>        cmp = compare(key, readKey);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">if</span> (cmp == 0) {
+</span></span><span style="display:flex;"><span>            <span style="font-weight:bold;text-decoration:underline">return</span> is.readNBytes(readValueLen);
+</span></span><span style="display:flex;"><span>        } <span style="font-weight:bold;text-decoration:underline">else</span> {
+</span></span><span style="display:flex;"><span>            is.skip(readValueLen);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">return</span> <span style="font-weight:bold;text-decoration:underline">null</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="bloom-filters">Bloom Filters</h3>
 <p>What happens when we search for a key that&rsquo;s not on disk? We waste a lot of precious CPU cycles
 on binary searching and seeking on an offset, and iterating until we surpass the wanted key.</p>
 <p>To avoid unnecessary operations we can rely on a compact and probabilistic structure such as <a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom Filters</a>.
@@ -285,12 +288,12 @@ The idea is to have a structure that answers membership queries, having some fal
 We can tune the structure for our particular needs, by specifying a false-positive rate.</p>
 <p>So, while looking for a key, we first test for probabilistic membership, and if the answer is negative, we can
 early return null from the search.</p>
-<pre tabindex="0"><code>public byte[] get(byte[] key) {
-    if (!bloomFilter.mightContain(key))
-        return null;
-    ...
-}
-</code></pre><h3 id="data-layout">Data layout</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">public</span> <span style="font-weight:bold;text-decoration:underline">byte</span>[] <span style="color:#666;font-weight:bold;font-style:italic">get</span>(<span style="font-weight:bold;text-decoration:underline">byte</span>[] key) {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">if</span> (!bloomFilter.mightContain(key))
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">return</span> <span style="font-weight:bold;text-decoration:underline">null</span>;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="data-layout">Data layout</h3>
 <p>Data is disk-resident, hence we need to define a binary format to follow, with minimal overhead.
 An SSTable is made of $n$ elements, where each one of them has a variable length <em>key</em> and <em>value</em>.</p>
 <p>Key and value pairs are byte arrays, and to lay them out on disk we encode their length $l$, followed
@@ -333,36 +336,36 @@ with buffer flushing and table compaction.</p>
 <li>query all the disk tables starting from level zero and on.</li>
 </ul>
 <p>If, at any point, the wanted key is found, we can stop the search.</p>
-<pre tabindex="0"><code>public byte[] get(byte[] key) {
-    byte[] result;
-
-    if ((result = mutableMemtable.get(key)) != null)
-        return result;
-
-    for (var memtable : immutableMemtables)
-        if ((result = memtable.get(key)) != null)
-            return result;
-
-    for (var level : tables)
-        for (var table : level)
-            if ((result = table.get(key)) != null)
-                return result;
-
-    return null;
-}
-</code></pre><h3 id="flushing-the-memtable-to-disk">Flushing the Memtable to disk</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">public</span> <span style="font-weight:bold;text-decoration:underline">byte</span>[] <span style="color:#666;font-weight:bold;font-style:italic">get</span>(<span style="font-weight:bold;text-decoration:underline">byte</span>[] key) {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">byte</span>[] result;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">if</span> ((result = mutableMemtable.get(key)) != <span style="font-weight:bold;text-decoration:underline">null</span>)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">return</span> result;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span> (<span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> memtable : immutableMemtables)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">if</span> ((result = memtable.get(key)) != <span style="font-weight:bold;text-decoration:underline">null</span>)
+</span></span><span style="display:flex;"><span>            <span style="font-weight:bold;text-decoration:underline">return</span> result;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span> (<span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> level : tables)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">for</span> (<span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> table : level)
+</span></span><span style="display:flex;"><span>            <span style="font-weight:bold;text-decoration:underline">if</span> ((result = table.get(key)) != <span style="font-weight:bold;text-decoration:underline">null</span>)
+</span></span><span style="display:flex;"><span>                <span style="font-weight:bold;text-decoration:underline">return</span> result;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">return</span> <span style="font-weight:bold;text-decoration:underline">null</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="flushing-the-memtable-to-disk">Flushing the Memtable to disk</h3>
 <p>When a given threshold is met, the Memtable is scheduled for flushing. To avoid blocking the whole
 Tree until data is persisted on disk, we use a background thread.</p>
-<pre tabindex="0"><code>private void checkMemtableSize() {
-    if (mutableMemtable.size() &lt;= mutableMemtableMaxSize)
-        return;
-
-    synchronized (immutableMemtablesLock) {
-        immutableMemtables.addFirst(mutableMemtable);
-        mutableMemtable = new Memtable(mutableMemtableMaxSize);
-    }
-}
-</code></pre><p>The background executor collects the older memtable to flush and creates a level-zero SSTable
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">private</span> <span style="font-weight:bold;text-decoration:underline">void</span> <span style="color:#666;font-weight:bold;font-style:italic">checkMemtableSize</span>() {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">if</span> (mutableMemtable.size() &lt;= mutableMemtableMaxSize)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">return</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;font-style:italic;text-decoration:underline">synchronized</span> (immutableMemtablesLock) {
+</span></span><span style="display:flex;"><span>        immutableMemtables.addFirst(mutableMemtable);
+</span></span><span style="display:flex;"><span>        mutableMemtable = <span style="font-weight:bold;text-decoration:underline">new</span> Memtable(mutableMemtableMaxSize);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The background executor collects the older memtable to flush and creates a level-zero SSTable
 on disk. It is important to guard critical sections while doing such operations.</p>
 <h3 id="tables-compaction">Tables compaction</h3>
 <p>Flushing many Memtables on disk creates excessive read amplification, as we need to potentially query a lot

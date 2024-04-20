@@ -4,16 +4,20 @@
 
 {{/* Intro summary section */}}
 
-{{if or .Site.Params.homeIntroTitle .Site.Params.homeIntroContent}}
-<div class="about">
+
+
+{{ if .Site.Params.homeIntro }}
+
+<div class="intro">
     {{ if .Site.Params.homeIntroTitle }}
-    <h2>{{ .Site.Params.homeIntroTitle }}</h2>
+    <h1>{{ .Site.Params.homeIntroTitle }}</h1>
     {{ end }}
 
     {{ if .Site.Params.homeIntroContent }}
     <p>{{ .Site.Params.homeIntroContent }}</p>
     {{ end }}
 </div>
+
 {{ end }}
 
 {{ with site.Params.social }}
@@ -29,7 +33,7 @@
 
 {{/* Posts list section */}}
 
-<h2>Posts</h2>
+<h1>Posts</h1>
 {{ range site.RegularPages }}
 {{ if in .File.Path "posts" }}
 {{ partial "post-entry.html" .}}

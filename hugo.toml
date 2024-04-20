@@ -5,11 +5,11 @@ title = 'Francesco Tomaselli'
 theme = 'Typo'
 
 [params]
-
 # Config
 math = true
 
 # Intro text
+homeIntro = true
 homeIntroTitle = 'Hi!'
 homeIntroContent = """
     I am an Italian Software Engineer with a strong foundation 
@@ -47,3 +47,7 @@ url = "/posts"
 [[params.menu]]
 name = "resume"
 url = "/resume"
+
+[markup]
+[markup.highlight]
+style = 'algol'
