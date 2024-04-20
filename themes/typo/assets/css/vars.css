@@ -27,7 +27,7 @@
     --code-margin-bottom: 2rem;
 
     /* List indentation */
-    --li-indent: 2rem;
+    --li-indent: 1.5rem;
     --ul-margin-top: 1rem;
     --ul-margin-bottom: 1rem;
 
@@ -39,5 +39,3 @@
     --code-padding: 1.5rem;
     --code-border-radius: 20px;
 }
-
-@media screen and (max-width: 768px) {}
