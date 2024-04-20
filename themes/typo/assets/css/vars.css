@@ -5,13 +5,13 @@
 
 
     /* header settings */
-    --header-top-gap: 2rem;
+    --header-top-gap: 1rem;
     --header-bottom-gap: 2rem;
     --header-menu-side-gap: .5rem;
     --header-menu-top-gap: 1rem;
 
     /* intro */
-    --intro-top-gap: 4rem;
+    --intro-top-gap: 3rem;
     --intro-bottom-gap: 1rem;
 
     /* Typography */

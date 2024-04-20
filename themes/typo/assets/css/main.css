@@ -69,7 +69,7 @@ code {
   font-feature-settings: "liga", "dlig";
   font-variant-ligatures: contextual;
   font-family: "Monaspace";
-  font-size: 1rem;
+  font-size: .9em;
 }
 
 .MathJax {
@@ -93,6 +93,7 @@ code {
 .header h1 {
   font-size: 2.6em;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 /* HOME PAGE INTRO */
@@ -123,6 +124,8 @@ code {
   font-size: small;
   font-family: "Monaspace";
   width: 110px;
+  text-align: right;
+  padding-right: 1rem;
 }
 
 .post-title {
@@ -133,7 +136,7 @@ code {
 
 .social-icons {
   padding: 12px 0;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .social-icons a {
