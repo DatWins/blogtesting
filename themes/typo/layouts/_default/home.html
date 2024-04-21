@@ -33,11 +33,41 @@
 
 {{/* Posts list section */}}
 
+
 <h1>Posts</h1>
+
+{{ $filteredPages := slice }}
+
 {{ range site.RegularPages }}
 {{ if in .File.Path "posts" }}
-{{ partial "post-entry.html" .}}
+{{ $filteredPages = $filteredPages | append . }}
 {{ end }}
+{{ end }}
+
+{{- $paginator := .Paginate $filteredPages }}
+
+{{- range $index, $page := $paginator.Pages }}
+{{ partial "post-entry.html" $page}}
+{{end}}
+
+{{- if gt $paginator.TotalPages 1 }}
+<div class="pagination">
+
+    {{- if $paginator.HasPrev }}
+    <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
+        prev
+    </a>
+    {{ end }}
+
+    {{- $paginator.PageNumber }}/{{ $paginator.TotalPages }}
+
+    {{- if $paginator.HasNext }}
+    <a class="next" href="{{ $paginator.Next.URL | absURL }}">
+        next
+    </a>
+    {{ end }}
+
+</div>
 {{ end }}
 
 {{ end }}
