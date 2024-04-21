@@ -4,6 +4,9 @@ disableKinds = ['taxonomy']
 title = 'Francesco Tomaselli'
 theme = 'Typo'
 
+googleAnalytics = "G-1EM39PGLW2"
+
+
 [params]
 # Config
 math = true

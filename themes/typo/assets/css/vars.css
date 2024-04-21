@@ -33,3 +33,9 @@
     --code-padding: 1.5rem;
     --code-border-radius: 20px;
 }
+
+@media screen and (max-width: 1024px) {
+    :root {
+        --main-width: 750px;
+    }
+}
