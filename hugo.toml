@@ -12,6 +12,7 @@ googleAnalytics = "G-1EM39PGLW2"
 [params]
 # Math mode
 math = true
+theme = 'auto'
 
 # Intro on main page, content in markdown
 homeIntro = true
