@@ -415,7 +415,8 @@ To have a nicer interaction with the engine I made a simple web interface using
 
 You can load an existing index and query it with free or boolean queries.
 
-![client](client.png)
+![client](web-l.png#light)
+![client](web-d.png#dark)
 
 ## Conclusions
 
