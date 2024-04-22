@@ -4,6 +4,7 @@ date: "2023-11-12"
 summary: "An LSM Tree overview and Java implementation."
 toc: true
 readTime: true
+autonumber: true
 ---
 
 I studied LSM trees at university and after encountering them twice in
@@ -358,6 +359,7 @@ be implemented. I'll perhaps update the code in the future.
 Thank you for reading this far, feel free to get in touch for suggestions or clarifications!
 
 Have a nice day 😃
+
 
 ### References
 

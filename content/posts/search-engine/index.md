@@ -4,6 +4,7 @@ date: "2024-02-01"
 summary: "A search engine overview and Rust implementation."
 toc: true
 readTime: true
+autonumber: true
 ---
 
 I have always been fascinated by search engines and their capabilities: 
