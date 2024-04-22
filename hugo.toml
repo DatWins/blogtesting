@@ -8,22 +8,22 @@ googleAnalytics = "G-1EM39PGLW2"
 
 
 [params]
-# Config
+# Math mode
 math = true
 
-# Intro text
+# Intro on main page, content in markdown
 homeIntro = true
 homeIntroTitle = 'Hi!'
 homeIntroContent = """
-    I am an Italian Software Engineer with a strong foundation 
-    in computer science and a passion for solving complex problems.
-    I am interested in a range of topics, including algorithms, 
-    distributed systems, databases, and information retrieval.
+I am an Italian Software Engineer with a strong foundation in computer science and a passion for solving complex problems.
+I am interested in a range of topics, including algorithms, distributed systems, databases, and information retrieval.
 """
 
+# Collection to display on home
 homeCollectionTitle = 'Posts'
 homeCollection = 'posts'
 
+# Pagination size across all website
 paginationSize = 100
 
 # Social icons
@@ -43,6 +43,8 @@ url = "https://github.com/tomfran"
 name = "leetcode"
 url = "https://leetcode.com/tomfran/"
 
+
+# Main menu pages
 [[params.menu]]
 name = "home"
 url = "/"
@@ -51,11 +53,11 @@ url = "/"
 name = "posts"
 url = "/posts"
 
-
 [[params.menu]]
 name = "resume"
 url = "/resume"
 
+# Syntax highligth on code blocks
 [markup]
 [markup.highlight]
 style = 'algol'

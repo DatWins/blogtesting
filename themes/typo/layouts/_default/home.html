@@ -11,7 +11,7 @@
     {{ end }}
 
     {{ if .Site.Params.homeIntroContent }}
-    <p>{{ .Site.Params.homeIntroContent }}</p>
+    <p>{{ .Site.Params.homeIntroContent | markdownify }}</p>
     {{ end }}
 </div>
 
