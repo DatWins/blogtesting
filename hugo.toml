@@ -1,11 +1,13 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-disableKinds = ['taxonomy']
 title = 'Francesco Tomaselli'
 theme = 'Typo'
 
-googleAnalytics = "G-1EM39PGLW2"
+# Disable tags
+disableKinds = ['taxonomy']
 
+# Google analytics code
+googleAnalytics = "G-1EM39PGLW2"
 
 [params]
 # Math mode
@@ -42,7 +44,6 @@ url = "https://github.com/tomfran"
 [[params.social]]
 name = "leetcode"
 url = "https://leetcode.com/tomfran/"
-
 
 # Main menu pages
 [[params.menu]]
