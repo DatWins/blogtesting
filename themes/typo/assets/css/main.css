@@ -1,3 +1,5 @@
+/* BASE */
+
 html {
   scroll-behavior: smooth;
 }
@@ -56,6 +58,8 @@ a {
   text-decoration: underline;
 }
 
+/* Code blocks */
+
 pre {
   padding: var(--code-padding);
   overflow: scroll;
@@ -76,10 +80,14 @@ code {
   font-size: .9em;
 }
 
+/* Latex Overflow */
+
 .MathJax {
   overflow-x: auto;
   overflow-y: hidden;
 }
+
+/* Footnotes */
 
 .footnotes {
   margin-top: 3rem;
@@ -93,7 +101,7 @@ hr {
 }
 
 
-/* HEADER */
+/* Header */
 
 .header {
   margin-top: var(--header-top-gap);
@@ -113,7 +121,7 @@ hr {
 }
 
 
-/* HOME PAGE */
+/* Posts list  */
 
 .post-list-container {
   margin-bottom: 2rem;
@@ -142,7 +150,34 @@ hr {
   margin: 0;
 }
 
-/* SOCIAL ICONS */
+.pagination {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.pagination-control {
+  min-width: 3rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  text-align: center;
+  align-items: center;
+}
+
+.page-number {
+  min-width: 3rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Social Icons */
 
 .social-icons {
   padding: 12px 0;
@@ -162,7 +197,7 @@ hr {
   width: 20px;
 }
 
-/* SINGLE POST */
+/* Single post page */
 
 .single-intro-container {
   margin-top: 1rem;

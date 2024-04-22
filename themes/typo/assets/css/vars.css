@@ -37,5 +37,12 @@
 @media screen and (max-width: 1024px) {
     :root {
         --main-width: 750px;
+        --header-top-gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    :root {
+        --header-top-gap: .5rem;
     }
 }

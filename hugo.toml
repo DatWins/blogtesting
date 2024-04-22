@@ -21,6 +21,11 @@ homeIntroContent = """
     distributed systems, databases, and information retrieval.
 """
 
+homeCollectionTitle = 'Posts'
+homeCollection = 'posts'
+
+paginationSize = 100
+
 # Social icons
 [[params.social]]
 name = "linkedin"

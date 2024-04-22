@@ -12,3 +12,6 @@ push_public:
 
 all: 
 	make push_public && make push_blog
+
+run: 
+	hugo server --disableFastRender

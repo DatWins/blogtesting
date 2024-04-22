@@ -2,32 +2,17 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 
-{{- $paginator := .Paginate .Pages }}
-
-{{- range $index, $page := $paginator.Pages }}
-{{ partial "post-entry.html" $page}}
-{{end}}
-
-{{- if gt $paginator.TotalPages 1 }}
-<div class="pagination">
-
-    {{- if $paginator.HasPrev }}
-    <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
-        prev
-    </a>
-    {{ end }}
-
-    <p class="page-number">
-        {{- $paginator.PageNumber }}/{{ $paginator.TotalPages }}
-    </p>
-
-    {{- if $paginator.HasNext }}
-    <a class="next" href="{{ $paginator.Next.URL | absURL }}">
-        next
-    </a>
-    {{ end }}
-
-</div>
+{{ $paginationSize := 1}}
+{{ if (gt .Site.Params.paginationSize 0) }}
+{{ $paginationSize = .Site.Params.paginationSize }}
 {{ end }}
+
+{{ $paginator := .Paginate (.Pages) $paginationSize }}
+
+{{ range $index, $page := $paginator.Pages }}
+{{ partial "post-entry.html" $page}}
+{{ end }}
+
+{{ partial "pagination-controls.html" $paginator}}
 
 {{ end }}
