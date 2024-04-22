@@ -32,6 +32,12 @@
     /* code */
     --code-padding: 1.5rem;
     --code-border-radius: 20px;
+
+    /* Footer */
+    --footer-height: 3rem;
+
+    /* Content */
+    --content-height: calc(100vh - var(--footer-height));
 }
 
 @media screen and (max-width: 1024px) {

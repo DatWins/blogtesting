@@ -11,18 +11,21 @@
 
 <body>
 
-  <header>
-    {{ partial "header.html" . }}
-  </header>
+  <div class="content">
+    <header>
+      {{ partial "header.html" . }}
+    </header>
 
-  <main class="main">
-    {{ block "main" . }}{{ end }}
-  </main>
+    <main class="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
 
 </body>
 
-<footer>
-  {{ partial "footer.html" . }}
-</footer>
 
 </html>

@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+  padding: 0;
 }
 
 body {
@@ -11,12 +12,12 @@ body {
   line-height: 1.3rem;
   margin: auto;
   max-width: var(--main-width);
-  padding: var(--main-padding);
-  padding-bottom: var(--main-padding-bottom);
+  padding-left: var(--main-padding);
+  padding-right: var(--main-padding);
 }
 
-footer {
-  display: none;
+.content {
+  min-height: var(--content-height) !important;
 }
 
 h1 {
@@ -104,7 +105,7 @@ hr {
 /* Header */
 
 .header {
-  margin-top: var(--header-top-gap);
+  padding-top: var(--header-top-gap);
   margin-bottom: var(--header-bottom-gap);
 }
 
@@ -120,6 +121,21 @@ hr {
   margin-top: 0;
 }
 
+/* Footer */
+
+footer {
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: var(--footer-height);
+}
+
+footer a {
+  font-family: "Monaspace";
+  margin-left: .2rem;
+  margin-right: .2rem;
+}
 
 /* Posts list  */
 
@@ -216,6 +232,10 @@ hr {
 .single-summary {
   font-style: italic;
   margin-bottom: 0;
+}
+
+.single-content {
+  margin-bottom: 6rem;
 }
 
 /* Table of contents */
