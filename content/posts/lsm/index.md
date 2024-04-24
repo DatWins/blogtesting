@@ -5,6 +5,7 @@ summary: "An LSM Tree overview and Java implementation."
 toc: true
 readTime: true
 autonumber: true
+math: true
 ---
 
 I studied LSM trees at university and after encountering them twice in
@@ -46,8 +47,8 @@ which provides the same theoretical complexity in the average case of balanced t
 A Skip List is a multi-leveled linked list. The idea is to have fast lanes between nodes, and, by
 carefully constructing them, we can reduce the number of links we need to traverse while searching.
 
-![skiplist](skiplist-l.png#light)
-![skiplist](skiplist-d.png#dark)
+![skiplist](skiplist-l.webp#light)
+![skiplist](skiplist-d.webp#dark)
 
 The list properties are:
 
@@ -131,8 +132,8 @@ Given a sampling factor $k$, we build a sparse index with keys at position $0, k
 By storing the index in an array we can rely on binary search to find a given offset in the data file, where we can start
 a linear scan. This permits us to skip a lot of unnecessary comparisons and locate a file portion that likely stores our value.
 
-![sstable](sstable-l.png#light)
-![sstable](sstable-d.png#dark)
+![sstable](sstable-l.webp#light)
+![sstable](sstable-d.webp#dark)
 
 Note that we can stop the search as soon as the current element surpasses the wanted one.
 Below is the code for searching, this implementation is as lazy as possible, meaning that we only read
@@ -255,8 +256,8 @@ The main components of the tree are:
 - _disk-resident tables_: a collection of SSTables obtained from memtables flushing, they are divided into levels,
 level zero containing the most recent data.
 
-![tree](tree-l.png#light)
-![tree](tree-d.png#dark)
+![tree](tree-l.webp#light)
+![tree](tree-d.webp#dark)
 
 We are going to first see how primitives are defined, and then give an overview of how the tree is maintained,
 with buffer flushing and table compaction.

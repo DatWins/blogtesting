@@ -5,6 +5,7 @@ summary: "A search engine overview and Rust implementation."
 toc: true
 readTime: true
 autonumber: true
+math: true
 ---
 
 I have always been fascinated by search engines and their capabilities: 
@@ -415,8 +416,8 @@ To have a nicer interaction with the engine I made a simple web interface using
 
 You can load an existing index and query it with free or boolean queries.
 
-![client](web-l.png#light)
-![client](web-d.png#dark)
+![client](web-l.webp#light)
+![client](web-d.webp#dark)
 
 ## Conclusions
 

@@ -11,7 +11,6 @@ googleAnalytics = "G-1EM39PGLW2"
 
 [params]
 # Math mode
-math = true
 theme = 'auto'
 
 # Intro on main page, content in markdown
@@ -63,3 +62,15 @@ url = "/resume"
 [markup]
 [markup.highlight]
 style = 'algol'
+
+# Deploy settings
+
+[[deployment.matchers]]
+pattern = "^.+\\.(js|css|svg|ttf|woff2)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpg|gif|webp)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = false
