@@ -10,7 +10,7 @@ disableKinds = ['taxonomy']
 googleAnalytics = "G-1EM39PGLW2"
 
 [params]
-# Math mode
+# Appearance settings
 theme = 'auto'
 
 # Intro on main page, content in markdown
