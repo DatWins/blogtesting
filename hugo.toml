@@ -14,7 +14,6 @@ googleAnalytics = "G-1EM39PGLW2"
 theme = 'auto'
 
 # Intro on main page, content in markdown
-homeIntro = true
 homeIntroTitle = 'Hi!'
 homeIntroContent = """
 I am an Italian Software Engineer with a strong foundation in computer science and a passion for solving complex problems.
