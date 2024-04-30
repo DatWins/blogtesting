@@ -24,8 +24,9 @@ I am interested in a range of topics, including algorithms, distributed systems,
 homeCollectionTitle = 'Posts'
 homeCollection = 'posts'
 
-# Pagination size across all website
+# Pagination parameters
 paginationSize = 100
+listSummaries = true
 
 # Social icons
 [[params.social]]

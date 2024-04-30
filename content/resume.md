@@ -2,15 +2,15 @@
 title: "Resume"
 ---
 
-## Work Experience
+## Experience
 
 **[Satispay](https://www.satispay.com/)** \
 Software Engineer \
-*Jan 2023 - Present*
+*01/2023 - Now*
 
 **[Spaziodati](https://www.spaziodati.eu/)** \
 Software Engineer Intern \
-*Feb 2020 - Jun 2020*
+*02/2020 - 06/2020*
 
 
 ## Education
