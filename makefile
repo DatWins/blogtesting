@@ -14,7 +14,8 @@ push_theme:
 	cd themes/typo && git add . && git commit -m "Theme Update" && git push
 
 all: 
-	make push_public && make push_blog
+	- make push_public
+	make push_blog
 
 run: 
 	hugo server --disableFastRender
