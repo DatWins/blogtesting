@@ -14,7 +14,7 @@ push_theme:
 	cd themes/typo && git add . && git commit -m "$(m)" && git push
 
 all: 
-	- push_theme
+	- make push_theme
 	- make push_public
 	make push_blog
 
