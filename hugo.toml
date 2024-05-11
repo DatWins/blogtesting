@@ -3,11 +3,11 @@ languageCode = 'en-us'
 title = 'Francesco Tomaselli'
 theme = 'Typo'
 
-# # Disable tags
-disableKinds = ['taxonomy']
+# # # Disable tags
+# disableKinds = ['taxonomy']
 
-# [taxonomies]
-# tag = 'tags'
+[taxonomies]
+tag = 'tags'
 
 # Google analytics code
 googleAnalytics = "G-1EM39PGLW2"
