@@ -6,6 +6,7 @@ toc: true
 readTime: true
 autonumber: true
 math: true
+
 ---
 
 I studied LSM trees at university and after encountering them twice in
