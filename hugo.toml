@@ -88,10 +88,10 @@ cacheControl = "max-age=31536000, no-transform, public"
 gzip = false
 
 [params.giscus]
-enable = false
+enable = true
 repo = "tomfran/blog"
 repoid = "R_kgDOLtSszw"
 category = "General"
 categoryid = "DIC_kwDOLtSsz84CfLm4"
 mapping = "pathname"
-theme = "light"
+theme = "preferred_color_scheme"
