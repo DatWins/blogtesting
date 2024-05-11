@@ -6,6 +6,8 @@ toc: true
 readTime: true
 autonumber: true
 math: true
+tags: ["information-retrieval", "rust"]
+showTags: false
 ---
 
 I have always been fascinated by search engines and their capabilities: 

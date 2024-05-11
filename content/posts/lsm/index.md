@@ -6,7 +6,8 @@ toc: true
 readTime: true
 autonumber: true
 math: true
-
+tags: ["database", "java"]
+showTags: false
 ---
 
 I studied LSM trees at university and after encountering them twice in
