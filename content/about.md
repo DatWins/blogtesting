@@ -1,5 +1,6 @@
 ---
 title: "About"
+hideBackToTop: true
 ---
 
 I am currently working at Satispay as a software engineer, 
