@@ -12,7 +12,7 @@ showTags: false
 
 During the writing of my first blog post, I found a problem with images. The drawings I made are png with a transparent background, and, since the lines are black, they look horrible on dark mode, as you can see below.
 
-![img](img.webp)
+![img](problem.webp)
 
 I wanted a quick way to define light and dark mode images for Hugo.
 
