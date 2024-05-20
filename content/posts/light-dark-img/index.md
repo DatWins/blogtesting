@@ -1,5 +1,5 @@
 ---
-title: "Dark and Light mode images on Hugo"
+title: "Hugo Dark and Light mode images"
 date: "2024-05-20"
 summary: "Auto-switch images based on theme."
 toc: true
