@@ -42,7 +42,8 @@ Hugo renders images with the logic defined in:
 /layouts/_default/_markup/render-image.html
 ```
 
-We can override it and decide which class to apply to an image based on the final tag:
+We can override it and decide which class to apply to an image based on the final tag.
+The below code first extracts the tag form the url, if any, and then applies a class based on it.
 
 ```html
 {{ $url := .Destination | safeURL }}
