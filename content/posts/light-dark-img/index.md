@@ -48,13 +48,14 @@ We can override it and decide which class to apply to an image based on the fina
 {{ $url := .Destination | safeURL }}
 
 {{ $class := "" }}
-{{ $file_name_array :=split $url "#" }}
-{{ $file_name_len :=len $file_name_array }}
+{{ $file_name_array := split $url "#" }}
+{{ $file_name_len := len $file_name_array }}
+{{ $tag := index $file_name_array (sub $file_name_len 1)}}
 
-{{ if eq (index $file_name_array (sub $file_name_len 1)) "dark" }}
-    {{ $class = "img-dark" }}
-{{ else if eq (index $file_name_array (sub $file_name_len 1)) "light" }}
-    {{ $class = "img-light" }}
+{{ if eq $tag "dark" }}
+  {{ $class = "img-dark" }}
+{{ else if eq $tag "light" }}
+  {{ $class = "img-light" }}
 {{end }}
 
 <figure class="{{ $class }}">
