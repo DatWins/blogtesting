@@ -1,7 +1,7 @@
 ---
-title: "Hugo Dark and Light mode images"
+title: "Controlling Images with tags in Hugo"
 date: "2024-05-20"
-summary: "Auto-switch images based on theme."
+summary: "Auto-switch images based on theme and specify sizing."
 toc: true
 readTime: true
 autonumber: true
@@ -14,7 +14,7 @@ During the writing of my first blog post, I found a problem with images. The dra
 
 ![img](problem.webp "PNGs on light and dark mode")
 
-I wanted a quick way to define light and dark mode images for Hugo.
+I wanted a quick way to define light and dark mode images for Hugo. Also, controlling image size easily would be great too.
 
 ## Solution
 
@@ -25,11 +25,11 @@ GitHub lets users specify in which theme they want readme images with two tags:
 ![img](./light.png#gh-light-mode-only)
 ```
 
-I decided to do something similar, definining two tags, `#dark`, and `#light`. 
+I decided to do something similar, definining several tags, `#dark`, `#light`, `#small`, `#full`, which controls on which theme an image appears, as well as sizing.
 
 ```
-![img](./dark.png#dark)
-![img](./light.png#light)
+![img](./dark.png#dark#small)
+![img](./light.png#light#full)
 ```
 
 What’s left is to tweak the hugo image render function to accomplish this.
@@ -43,12 +43,6 @@ Hugo renders images with the logic defined in:
 ```
 
 We can override it and decide which class to apply to an image based on image tags.
-I generalized the idea of tags and used them to pick image sizing as well, introducing the following: 
-
-```
-#dark, #light, #small, #full
-```
-
 The below code first extracts the tags form the url, if any, and then applies classes to the figure based on them.
 
 ```html
