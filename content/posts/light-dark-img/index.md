@@ -12,7 +12,7 @@ showTags: false
 
 During the writing of my first blog post, I found a problem with images. The drawings I made are png with a transparent background, and, since the lines are black, they look horrible on dark mode, as you can see below.
 
-![img](problem.webp)
+![img](problem.webp "PNGs on light and dark mode")
 
 I wanted a quick way to define light and dark mode images for Hugo.
 
@@ -42,29 +42,41 @@ Hugo renders images with the logic defined in:
 /layouts/_default/_markup/render-image.html
 ```
 
-We can override it and decide which class to apply to an image based on the final tag.
-The below code first extracts the tag form the url, if any, and then applies a class based on it.
+We can override it and decide which class to apply to an image based on image tags.
+I generalized the idea of tags and used them to pick image sizing as well, introducing the following: 
+
+```
+#dark, #light, #small, #full
+```
+
+The below code first extracts the tags form the url, if any, and then applies classes to the figure based on them.
 
 ```html
+{{/* Split URL at # */}}
 {{ $url := .Destination | safeURL }}
-
-{{ $class := "" }}
 {{ $file_name_array := split $url "#" }}
-{{ $file_name_len := len $file_name_array }}
-{{ $tag := index $file_name_array (sub $file_name_len 1)}}
 
-{{ if eq $tag "dark" }}
-  {{ $class = "img-dark" }}
-{{ else if eq $tag "light" }}
-  {{ $class = "img-light" }}
-{{end }}
+{{/*
+Iterate over all tags, which are in pos 1 to len array - 1,
+and build the img class string as "img-tag1 img-tag2 ..."
+*/}}
 
-<figure class="{{ $class }}">
-    <img loading="lazy" alt="{{ .Text }}" src=" {{ $url }}">
+{{ $classes := "" }}
+
+{{ range $idx := seq (sub (len $file_name_array) 1) }}
+{{ $tag := index $file_name_array $idx }}
+{{ $classes = printf "%s img-%s" $classes $tag}}
+{{ end }}
+
+{{/* Use the computed classes on the rendered figure */}}
+<figure class="{{ $classes }}">
+    <div>
+        <img loading="lazy" alt="{{ .Text }}" src=" {{ $url }}">
+    </div>
 </figure>
 ```
 
-Finally, we need to define two image classes in our CSS as follows:
+Finally, we need to define image classes in our CSS as follows:
 
 ```css
 .dark .img-light {
@@ -74,9 +86,30 @@ Finally, we need to define two image classes in our CSS as follows:
 .light .img-dark {
   display: none !important;
 }
+
+.img-small div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-small img {
+  scale: 80%;
+}
+
+.img-full div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-full img {
+  width: 100vw !important;
+  max-width: 100vw !important;
+}
 ```
 
-Where dark and light classes define color schemes.
+Where dark and light classes define color schemes and are added dynamically to the body.
 
 This solution is currently implemented in the [Typo theme](https://github.com/tomfran/typo), which is in use on this website, go have a look!
 

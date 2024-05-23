@@ -418,8 +418,8 @@ To have a nicer interaction with the engine I made a simple web interface using
 
 You can load an existing index and query it with free or boolean queries.
 
-![client](web-l.webp#light)
-![client](web-d.webp#dark)
+![client](web-l.webp#light "Light mode Web client showing a boolean query")
+![client](web-d.webp#dark "Dark mode Web client showing a boolean query")
 
 ## Conclusions
 
