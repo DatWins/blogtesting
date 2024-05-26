@@ -2,6 +2,7 @@
 title: "Controlling Images with tags in Hugo"
 date: "2024-05-20"
 summary: "Auto-switch images based on theme and specify sizing."
+description: "Applying classes to Hugo images using GitHub-like tags, enabling auto dark light mode switch and sizing control."
 toc: true
 readTime: true
 autonumber: true

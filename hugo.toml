@@ -10,6 +10,9 @@ theme = 'Typo'
 tag = 'tags'
 
 [params]
+# Home meta description
+description = "A tech-oriented personal blog curated by Francesco Tomaselli."
+
 # Appearance settings
 theme = 'auto'
 

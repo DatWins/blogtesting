@@ -2,6 +2,7 @@
 title: "Search Engine in Rust"
 date: "2024-02-01"
 summary: "A search engine overview and Rust implementation."
+description: "A search engine overview and Rust implementation, covering text pre-processing, indexing, query resolution, and index compression."
 toc: true
 readTime: true
 autonumber: true
