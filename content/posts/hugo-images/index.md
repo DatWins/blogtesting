@@ -1,7 +1,7 @@
 ---
 title: "Controlling Images with tags in Hugo"
 date: "2024-05-20"
-summary: "Auto-switch images based on theme and specify sizing."
+summary: "GitHub-like image control with Hugo using tags, supporting theme switching, and size adjustments."
 description: "Applying classes to Hugo images using GitHub-like tags, enabling auto dark light mode switch and sizing control."
 toc: true
 readTime: true
@@ -105,6 +105,34 @@ Finally, we need to define image classes in our CSS as follows:
 ```
 
 Where dark and light classes define color schemes and are added dynamically to the body.
+
+## Result
+
+Below you can see the result of the following block, switch your system theme to see both images.
+
+```
+![img](./dark.webp#dark "Normal size image on dark mode")
+![img](./dark.webp#dark#small "Small size image on light mode")
+![img](./dark.webp#dark#full "Full size image on light mode")
+
+![img](./light.webp#light "Normal size image on light mode")
+![img](./light.webp#light#small "Small size image on light mode")
+![img](./light.webp#light#full "Full size image on light mode")
+```
+
+![img](./dark.webp#dark "Normal size image on dark mode")
+
+![img](./dark.webp#dark#small "Small size image on dark mode")
+
+![img](./dark.webp#dark#full "Full size image on dark mode")
+
+![img](./light.webp#light "Normal size image on light mode")
+
+![img](./light.webp#light#small "Small size image on light mode")
+
+![img](./light.webp#light#full "Full size image on light mode")
+
+---
 
 This solution is currently implemented in the [Typo theme](https://github.com/tomfran/typo), which is in use on this website, go have a look!
 
