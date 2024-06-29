@@ -16,6 +16,7 @@ description = "A tech-oriented personal blog curated by Francesco Tomaselli."
 # Appearance settings
 theme = 'auto'
 colorPalette = 'default'
+hideHeader = false
 
 # Intro on main page, content in markdown
 homeIntroTitle = 'Hi!'
