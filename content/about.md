@@ -11,9 +11,9 @@ More recently, I moved to Berlin.
 
 ## Experience
 
-<!-- **[Amazon](https://www.amazon.jobs/teams/aft)** \
+**[Amazon](https://www.amazon.jobs/teams/aft)** \
 07/24 - Now | Berlin \
-*Software Development Engineer 2 on the Amazon fulfillment technologies team* -->
+*Software Development Engineer 2 on the Amazon fulfillment technologies team*
 
 **[Satispay](https://www.satispay.com/en-it/)** \
 01/23 - 06/24 | Milan \
