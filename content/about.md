@@ -15,12 +15,12 @@ More recently, I moved to Berlin.
 07/24 - Now | Berlin \
 *Software Development Engineer II*
 
-[Satispay](https://www.satispay.com/en-it/) \
+[Satispay](https://www.satispay.com/) \
 01/23 - 06/24 | Milan \
 *Software Engineer*
 
-[Spaziodati](https://www.satispay.com/en-it/) \
-02/20 - 06/20 | Milan \
+[Spaziodati](https://www.spaziodati.eu/) \
+02/20 - 06/20 | Trento \
 *Software Engineer Intern*
 
 ## Education
