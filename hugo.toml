@@ -22,8 +22,7 @@ hideHeader = false
 homeIntroTitle = 'Hi!'
 homeIntroContent = """
 I am an Italian Software Engineer with a strong foundation in computer science and a passion for solving complex problems.
-I am interested in a range of topics, including algorithms, distributed systems, databases, and information retrieval. \\
-Feel free to read [about myself](/about) or to look at my [posts](/posts).
+I am interested in a range of topics, including algorithms, distributed systems, databases, and information retrieval.
 """
 
 # Collection to display on home
@@ -50,10 +49,6 @@ url = "https://medium.com/@tomfran"
 [[params.social]]
 name = "github"
 url = "https://github.com/tomfran"
-
-[[params.social]]
-name = "leetcode"
-url = "https://leetcode.com/tomfran/"
 
 # Main menu pages
 [[params.menu]]
