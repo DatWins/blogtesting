@@ -22,7 +22,8 @@ hideHeader = false
 homeIntroTitle = 'Hi!'
 homeIntroContent = """
 I am an Italian Software Engineer with a strong foundation in computer science and a passion for solving complex problems.
-I am interested in a range of topics, including algorithms, distributed systems, databases, and information retrieval.
+I am interested in a various topics, including algorithms, distributed systems, databases, and information retrieval. \\
+Feel free to read [about myself](/about) or to look at my [posts](/posts).
 """
 
 # Collection to display on home
