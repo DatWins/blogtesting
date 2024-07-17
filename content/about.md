@@ -2,6 +2,7 @@
 title: "About"
 description: "A description of Francesco Tomaselli, an Italian software engineer."
 hideBackToTop: true
+hidePagination: true
 # autonumber: true
 ---
 
