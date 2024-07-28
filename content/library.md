@@ -1,7 +1,7 @@
 ---
 title: "Library"
 description: "Books I liked."
-hideBackToTop: true
+hideBackToTop: false
 hidePagination: true
 ---
 
