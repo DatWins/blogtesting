@@ -1,4 +1,4 @@
-baseURL = 'https://tomfran.github.io/'
+baseURL = 'https://tomfran.github.io'
 languageCode = 'en-us'
 title = 'Francesco Tomaselli'
 theme = 'typo'
