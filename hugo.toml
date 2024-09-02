@@ -26,6 +26,9 @@ I am interested in a various topics, including algorithms, distributed systems, 
 Feel free to read [about myself](/about) or to look at my [posts](/posts).
 """
 
+
+singleDateFormat = '2 Jan 2006'
+
 # Collection to display on home
 # homeCollectionTitle = 'Posts'
 # homeCollection = 'posts'
