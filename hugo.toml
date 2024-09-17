@@ -41,6 +41,9 @@ listDateFormat = '02 Jan 2006'
 # Breadcrumbs
 breadcrumbs = true
 
+showFooter = true
+# footerContent = """Custom"""
+
 # Social icons
 [[params.social]]
 name = "linkedin"
