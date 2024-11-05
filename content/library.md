@@ -5,7 +5,6 @@ hideBackToTop: false
 hidePagination: true
 ---
 
-
 [Designing Data-Intensive Applications](https://dataintensive.net/) \
 Excellent book about many distributed systems concepts, databases, and big data processing ideas.
 
@@ -29,3 +28,6 @@ On the importance of interrupted deep work and some pieces of advice on how to a
 
 [Steve Jobs Biography](https://en.wikipedia.org/wiki/Steve_Jobs_(book)) \
 An overview of the founder of Apple's life.
+
+[The Psychology of Money](https://www.morganhousel.com/) \
+Offers perspectives on the relationship between money and human behavior.
